@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PersonalProfileController;
@@ -19,25 +20,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::middleware('locale')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::get('/login', [LoginController::class, 'show'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/login', [LoginController::class, 'show'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('/register', [RegisterController::class, 'show'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
+    Route::get('/register', [RegisterController::class, 'show'])->name(
+        'register'
+    );
+    Route::post('/register', [RegisterController::class, 'register']);
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('profiles', PersonalProfileController::class)->only([
-        'show',
-        'edit',
-        'update',
-        'destroy',
-    ]);
+    Route::middleware(['auth'])->group(function () {
+        Route::resource('profiles', PersonalProfileController::class)->only([
+            'show',
+            'edit',
+            'update',
+            'destroy',
+        ]);
 
-    Route::resource('profiles.skills', SkillController::class)
-        ->only(['store', 'update', 'destroy'])
-        ->shallow();
+        Route::resource('profiles.skills', SkillController::class)
+            ->only(['store', 'update', 'destroy'])
+            ->shallow();
+    });
 });
+
+Route::get('/change-locale/{locale}', [
+    LocaleController::class,
+    'change',
+])->name('change_locale');
