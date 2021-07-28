@@ -1,0 +1,132 @@
+section.bio,
+section.skills {
+  background-color: hsl(0, 0%, 100%);
+
+  position: relative;
+  margin: 2rem 12.5%;
+  padding-bottom: 2rem;
+}
+
+.profile-action {
+  position: absolute;
+  top: 15rem;
+  right: 3rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-profile-icon {
+  margin-right: 2em;
+}
+
+.profile-action button {
+  margin: 0;
+  padding: 0;
+
+  background-color: unset;
+  color: red;
+}
+
+.user-image {
+  position: relative;
+  height: 15em;
+}
+
+.cover-image {
+  height: 10em;
+  background-color: hsl(0, 0%, 80%);
+}
+
+.avatar {
+  position: absolute;
+  top: 3em;
+  left: 3em;
+}
+
+.avatar img {
+  border: 5px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+}
+
+.user-full-name,
+.about-me,
+.contact-info {
+  margin: 3em;
+}
+
+.user-full-name {
+  margin-top: 0;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.contact-info-item {
+  margin: 1em;
+}
+
+section.skills {
+  padding: 3em;
+}
+
+section.skills ul {
+  list-style: none;
+
+  margin-top: 1em;
+}
+
+section.skills form {
+  display: none;
+}
+
+section.skills i {
+  cursor: pointer;
+}
+
+section.skills.adding .create-skill-form {
+  display: block;
+}
+
+section.skills button {
+  width: 5em;
+
+  padding: 0.15em;
+}
+
+.skill-item {
+  margin: 1em 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+.skill-item .skill-action {
+  margin-left: 2rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.skill-item.editing .edit-skill-form {
+  display: block;
+
+  margin-left: 2rem;
+}
+
+.skill-item .delete-skill-form {
+  display: block;
+  width: fit-content;
+}
+
+.delete-skill-form button {
+  all: unset;
+
+  padding: 0 !important;
+  margin-left: 2rem;
+
+  width: 1em !important;
+}

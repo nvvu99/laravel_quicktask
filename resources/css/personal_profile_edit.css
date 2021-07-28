@@ -1,21 +1,12 @@
-body {
-  background-image: url("../images/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
 main {
   margin: 5rem 8.33%;
   width: calc(100% - 16.66%);
 }
 
-.login-form,
-.register-form {
+.edit-profile-form {
   background-color: hsl(0, 0%, 100%);
 
-  width: 25%;
-
+  margin: 0 16.66%;
   padding: 2em 4em;
 }
 
@@ -29,12 +20,8 @@ main {
   padding-bottom: 1em;
 }
 
-input#username,
-input#password,
-input#email,
-input#first-name,
-input#last-name,
-input#password-confirmation {
+input,
+textarea {
   width: 100%;
   height: 2em;
 
@@ -42,12 +29,15 @@ input#password-confirmation {
   border-radius: 0.25em;
 }
 
-.login-form button,
-.register-form button {
+textarea {
+  height: unset;
+}
+
+.edit-profile-form button {
   margin-top: 2rem;
 }
 
-.register-form fieldset {
+fieldset {
   border: none;
 }
 
