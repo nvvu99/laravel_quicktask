@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\PersonalProfile;
+use App\Models\Skill;
 use App\Policies\PersonalProfilePolicy;
+use App\Policies\SkillPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -16,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         PersonalProfile::class => PersonalProfilePolicy::class,
+        Skill::class => SkillPolicy::class,
     ];
 
     /**

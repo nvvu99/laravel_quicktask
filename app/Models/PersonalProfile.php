@@ -30,6 +30,11 @@ class PersonalProfile extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
     public function getBirthdayAttribute($value)
     {
         $date = new Carbon($value);
