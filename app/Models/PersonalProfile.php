@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +30,12 @@ class PersonalProfile extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getBirthdayAttribute($value)
+    {
+        $date = new Carbon($value);
+        return $date->format('Y-m-d');
+    }
+
     public function getFirstNameAttribute()
     {
         return $this->user->first_name;
@@ -47,5 +54,10 @@ class PersonalProfile extends Model
     public function getEmailAttribute()
     {
         return $this->user->email;
+    }
+
+    public function getUsernameAttribute()
+    {
+        return $this->user->username;
     }
 }
