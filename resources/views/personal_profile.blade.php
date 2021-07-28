@@ -82,5 +82,25 @@
                 @endif
             </div>
         </section>
+
+        <section class="skills card">
+            <h3>{{ __('labels.skills') }}</h3>
+
+            <ul class="skills-list">
+                @foreach($profile->skills as $skill)
+                    <li class="skill-item">
+                        {{ $skill->name }}
+                        @include('components.edit_skill_form', ['skill' => $skill])
+                        <div class="skill-action">
+                            <i class="fas fa-pencil-alt" onclick="this.closest('.skill-item').classList.toggle('editing')"></i>
+                            @include('components.delete_skill_form', ['skill' => $skill])
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+
+            @include('components.create_skill_form', ['profile' => $profile])
+            <i class="fas fa-2x fa-plus-circle" onclick="this.parentNode.classList.toggle('adding')"></i>
+        </section>
     </main>
 @endsection
