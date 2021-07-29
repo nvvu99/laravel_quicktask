@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PersonalProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,8 @@ Route::middleware(['auth'])->group(function () {
         'update',
         'destroy',
     ]);
+
+    Route::resource('profiles.skills', SkillController::class)
+        ->only(['store', 'update', 'destroy'])
+        ->shallow();
 });
