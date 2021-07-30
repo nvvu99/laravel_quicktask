@@ -17,9 +17,7 @@
 
     @yield('content')
 
-    @section('sidebar')
-        @include('components.sidebar')
-    @show
+    @yield('sidebar')
 
     @yield('addtional_script')
 </body>

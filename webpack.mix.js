@@ -14,4 +14,7 @@ const mix = require("laravel-mix");
 mix
   .js("resources/js/app.js", "public/js")
   .postCss("resources/css/app.css", "public/css")
-  .postCss("resources/css/auth.css", "public/css/");
+  .postCss("resources/css/auth.css", "public/css/")
+  .postCss("resources/css/personal_profile.css", "public/css/")
+  .postCss("resources/css/personal_profile_edit.css", "public/css/")
+  .copy("resources/images/", "public/images");
